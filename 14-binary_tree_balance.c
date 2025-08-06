@@ -12,22 +12,18 @@
 
 int binary_tree_balance(const binary_tree_t *tree)
 {
-	int heightLeft = 0;
-	int heightRight = 0;
+	int height_left = 0, height_right = 0;
 
-	if (tree != NULL)
+	if (tree)
 	{
-		/* Measuring the height of each child */
-		heightLeft = binary_tree_height(tree->left);
-		heightRight = binary_tree_height(tree->right);
+		height_left = binary_tree_height(tree->left);
+		height_right = binary_tree_height(tree->right);
 
-		if (tree->left == NULL)
-			heightLeft = -1;
+		if (!tree->left)
+			height_left = -1;
 
-		if (tree->right == NULL)
-			heightRight = -1;
+		if (!tree->right)
+			height_right = -1;
 	}
-
-	/* Returning the difference of heights */
-	return (heightLeft - heightRight);
+	return (height_left - height_right);
 }
